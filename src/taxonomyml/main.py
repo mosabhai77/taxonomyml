@@ -265,7 +265,7 @@ def create_taxonomy(
 
     logger.info("Using OpenAI API.")
     response = get_openai_response_chat(
-        prompt, model=settings.OPENAI_LARGE_MODEL, openai_api_key=openai_api_key
+        prompt, model=settings.OPENAI_FAST_MODEL, openai_api_key=openai_api_key
     )
 
     logger.info("Reviewing OpenAI's work.")
@@ -273,7 +273,7 @@ def create_taxonomy(
         taxonomy=response, brands=brand_terms
     )
     reviewed_response = get_openai_response_chat(
-        prompt, model=settings.OPENAI_LARGE_MODEL, openai_api_key=openai_api_key
+        prompt, model=settings.OPENAI_FAST_MODEL, openai_api_key=openai_api_key
     )
 
     if not response or not reviewed_response:
